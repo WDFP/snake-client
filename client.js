@@ -8,7 +8,11 @@ const connect = function () {
   });
   conn.on("connect", () => {
     // code that does something when the connection is first established
-    console.log('you ded cuz you idled');
+    console.log('Successfully connected to game server');
+  });
+  conn.on("connect", () => {
+    // Client Can Send a Reply-M2W5-Intro to net
+    conn.write("Name: VCM");
   });
 
   // interpret incoming data as text
