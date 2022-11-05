@@ -15,12 +15,6 @@ const connect = function () {
     // Client Can Send a Reply-M2W5-Intro to net
     conn.write("Name: VCM");
   });
-  // conn.on("connect", () => {
-  //    // Move snake up
-  //   setTimeout(() => {
-  //     conn.write("Move: up")
-  //   }, 2000);
-  // });
 
   // interpret incoming data as text
   conn.setEncoding("utf8");
