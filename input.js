@@ -1,19 +1,17 @@
 let connection;
+const moveCommands = {
+  w: "Move: up",
+  a: "Move: left",
+  s: "Move: down",
+  d: "Move: right",
+  1: "Say: WOW",
+  2: "Say: BOOM",
+};
 
 const handleUserInput = function (key) {
-  if (key === "w") {
-    connection.write("Move: up");
-  } else if (key === "a") {
-    connection.write("Move: left");
-  } else if (key === "s") {
-    connection.write("Move: down");
-  } else if (key === "d") {
-    connection.write("Move: right");
-  } else if (key === "1") {
-    connection.write("Say: WOW");
-  } else if (key === "2") {
-    connection.write("Say: BOOM");
-  }
+  // if (key === "w") {
+  //   connection.write("Move: up");
+  connection.write(moveCommands[key]);
   if (key === "\u0003") {
     process.exit();
   }
