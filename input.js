@@ -1,24 +1,17 @@
-let connection;
-const moveCommands = {
-  w: "Move: up",
-  a: "Move: left",
-  s: "Move: down",
-  d: "Move: right",
-  1: "Say: WOW",
-  2: "Say: BOOM",
-};
+const { moveCommands } = require("./constants.js");
 
 const handleUserInput = function (key) {
-  // if (key === "w") {
-  //   connection.write("Move: up");
-  connection.write(moveCommands[key]);
-  if (key === "\u0003") {
+  if (moveCommands[key]) {
+    connection.write(moveCommands[key]);
+  } else if (key === "\u0003") {
     process.exit();
+  } else {
+    console.log("Wrong key");
   }
 };
 
 // setup interface to handle user input from stdin
-
+let connection;
 const setupInput = (conn) => {
   connection = conn;
   const stdin = process.stdin;
